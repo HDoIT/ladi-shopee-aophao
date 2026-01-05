@@ -9291,12 +9291,14 @@
                                                     class="ladi-form-control ladi-form-control-select ladi-form-control-select-3"
                                                     data-selected="" data-is-select-country="true">
                                                     <option value="" class="ladi-hidden">Tỉnh/thành</option>
-                                                </select><select data-select-index="2" tabindex="4" name="district"
+                                                </select>
+                                                <!-- <select data-select-index="2" tabindex="4" name="district"
                                                     required
                                                     class="ladi-form-control ladi-form-control-select ladi-form-control-select-3"
                                                     data-selected="" data-is-select-country="true">
                                                     <option value="" class="ladi-hidden">Quận/huyện</option>
-                                                </select><select data-select-index="3" tabindex="4" name="ward" required
+                                                </select> -->
+                                                <select data-select-index="3" tabindex="4" name="ward" required
                                                     class="ladi-form-control ladi-form-control-select ladi-form-control-select-3"
                                                     data-selected="" data-is-select-country="true">
                                                     <option value="" class="ladi-hidden">Phường/xã</option>
@@ -13075,7 +13077,7 @@
                     street: document.querySelector('input[name="street"]')?.value || '',
                     country: document.querySelector('input[name="country"]')?.value || '',
                     state: document.querySelector('select[name="state"]')?.value || '',
-                    district: document.querySelector('select[name="district"]')?.value || '',
+                    // district: document.querySelector('select[name="district"]')?.value || '',
                     ward: document.querySelector('select[name="ward"]')?.value || '',
                     message: document.querySelector('textarea[name="message"]')?.value || '',
                     san_pham: document.querySelector('textarea[name="san_pham"]')?.value || '',
@@ -13084,7 +13086,7 @@
 
                 // Kiểm tra các trường bắt buộc
                 if (!formData.name || !formData.phone || !formData.street ||
-                    !formData.state || !formData.district || !formData.ward ||
+                    !formData.state || !formData.ward ||
                     !formData.san_pham) {
                     alert('Vui lòng điền đầy đủ thông tin bắt buộc!');
                     return;
