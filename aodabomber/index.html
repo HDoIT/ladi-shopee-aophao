@@ -13369,10 +13369,20 @@
                 })
                     .then(() => {
                         // Hiển thị thông báo thành công
-                        alert('Đơn hàng đã được gửi thành công! Chúng tôi sẽ liên hệ với bạn sớm.');
+                        // alert('Đơn hàng đã được gửi thành công! Chúng tôi sẽ liên hệ với bạn sớm.');
 
                         // Reset form
                         form.reset();
+                        const params = new URLSearchParams({
+                            name: formData.name,
+                            phone: formData.phone,
+                            street: formData.street,
+                            message: formData.message,
+                            san_pham: formData.san_pham,
+                            tong_tien: formData.tong_tien
+                        });
+
+                        window.location.href = `/thankyou/index.html?${params.toString()}`;
 
                         // Reset select boxes về giá trị mặc định
                         document.querySelectorAll('select').forEach(select => {
