@@ -673,7 +673,7 @@
         }
 
         .poster-cta {
-            display: inline-flex;
+            display: none;
             align-items: center;
             gap: 10px;
             background: var(--primary);
@@ -1764,6 +1764,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
 
+            .product-card.full-width {
+                grid-column: span 2;
+            }
+
             .countdown-container {
                 max-width: none;
             }
@@ -1787,7 +1791,7 @@
             }
 
             .panel {
-                height: 60vh;
+                height: 100vh;
             }
         }
     </style>
@@ -1861,11 +1865,15 @@
                     <div class="expanding-panels">
                         <div class="panel active" style="background-image: url('/quanaonam/images/banner-sales.png')">
                             <div class="panel-badge">HOT DEAL</div>
-                            <h3>Up to 60% Off All Items</h3>
+                            <h3>Golden Week: Up to 80% Off Summer Items</h3>
+                        </div>
+                        <div class="panel" style="background-image: url('/quanaonam/images/banner-sales-1.png')">
+                            <div class="panel-badge">MEGA SALE</div>
+                            <h3>Golden Week Mega Sale</h3>
                         </div>
                         <div class="panel" style="background-image: url('/quanaonam/images/banner.png')">
                             <div class="panel-badge">FASHION</div>
-                            <h3>Men's Summer Fashion in Japan</h3>
+                            <h3>Celebrate Golden Week in Style</h3>
                         </div>
                     </div>
                     <div class="hero-buttons">
@@ -1957,9 +1965,8 @@
                     <img src="/quanaonam/images/Áo thun/1.png" alt="T-Shirt" class="featured-item-image">
                     <div class="featured-item-badge">Hot</div>
                     <div class="featured-item-info">
-                        <h3 class="featured-item-name">Summer T-Shirt</h3>
-                        <p class="featured-item-desc">Lightweight cotton tee with modern design, cool & comfortable all
-                            day</p>
+                        <h3 class="featured-item-name">Half-Collar T-Shirt</h3>
+                        <p class="featured-item-desc">Elevate your basics. A seamless blend of casual comfort and sharp tailoring with clean lines, raglan sleeves, and a modern v-split collar.</p>
                         <a href="http://m.me/101980602523491" class="featured-item-cta" target="_blank">
                             <i class="fab fa-facebook-messenger"></i>
                             Get Price Now
@@ -1971,9 +1978,8 @@
                         class="featured-item-image">
                     <div class="featured-item-badge">New</div>
                     <div class="featured-item-info">
-                        <h3 class="featured-item-name">Patterned Linen Shirt</h3>
-                        <p class="featured-item-desc">Stylish patterned shirt in breathable linen, perfect for summer
-                            outings</p>
+                        <h3 class="featured-item-name">Casual Polo</h3>
+                        <p class="featured-item-desc">Designed for the modern gentleman, it brings a clean, confident edge to any setting.</p>
                         <a href="http://m.me/101980602523491" class="featured-item-cta" target="_blank">
                             <i class="fab fa-facebook-messenger"></i>
                             Get Price Now
@@ -2233,41 +2239,44 @@
                 badge: "Classic"
             },
             {
-                name: "Classic T-Shirt - Dark",
-                description: "Lightweight cotton tee with modern design, cool & comfortable for everyday summer wear.",
+                name: "Half-Collar T-Shirt",
+                description: "Elevate your basics. A seamless blend of casual comfort and sharp tailoring with clean lines, raglan sleeves, and a modern v-split collar.",
                 image: "/quanaonam/images/Áo thun/1.png",
-                badge: "Hot"
+                badge: "Hot",
+                fullWidth: true
             },
-            {
+            /* {
                 name: "Classic T-Shirt - Light",
                 description: "Soft and breathable light cotton t-shirt, an essential staple for your summer wardrobe.",
                 image: "/quanaonam/images/Áo thun/3.png",
                 badge: "Essential"
-            },
+            }, */
             {
-                name: "Premium Graphic Tee - Dark",
-                description: "High-quality graphic tee with vibrant print, soft cotton blend that stays cool all day.",
+                name: "Couple Graphic Tee",
+                description: "Embrace the effortless synergy of modern urban style with these perfectly coordinated, relaxed-fit tees.",
                 image: "/quanaonam/images/Áo thun 2/1.png",
-                badge: "New"
+                badge: "New",
+                fullWidth: true
             },
-            {
+            /* {
                 name: "Premium Graphic Tee - Light",
                 description: "Stylish light graphic t-shirt with a relaxed fit, perfect for weekend outings and trips.",
                 image: "/quanaonam/images/Áo thun 2/3.png",
                 badge: "Trending"
-            },
+            }, */
             {
-                name: "Patterned Linen Shirt - Blue",
-                description: "Breathable linen shirt with stylish patterns, perfect for beach vacations and summer parties.",
+                name: "Casual Polo",
+                description: "Designed for the modern gentleman, it brings a clean, confident edge to any setting.",
                 image: "/quanaonam/images/Áo sơ mi họa tiết/1.png",
-                badge: "Stylish"
+                badge: "Stylish",
+                fullWidth: true
             },
-            {
+            /* {
                 name: "Patterned Linen Shirt - Beige",
                 description: "Tropical-inspired beige shirt with elegant print, lightweight fabric for hot summer weather.",
                 image: "/quanaonam/images/Áo sơ mi họa tiết/3.png",
                 badge: "Summer Vibes"
-            },
+            }, */
             {
                 name: "Summer Resort Set - Navy",
                 description: "Complete matching shirt and shorts set in navy, lightweight & wrinkle-free for a polished look.",
@@ -2395,7 +2404,7 @@
 
             products.forEach((product, index) => {
                 const productCard = document.createElement('div');
-                productCard.className = 'product-card';
+                productCard.className = 'product-card' + (product.fullWidth ? ' full-width' : '');
                 productCard.style.animationDelay = `${index * 0.1}s`;
 
                 productCard.innerHTML = `
